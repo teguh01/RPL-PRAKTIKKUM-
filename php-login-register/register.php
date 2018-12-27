@@ -27,6 +27,7 @@ if(isset($_POST['register'])){
 
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
+    
 
     // jika query simpan berhasil, maka user sudah terdaftar
     // maka alihkan ke halaman login
@@ -41,7 +42,7 @@ if(isset($_POST['register'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register Pesbuk</title>
+    <title>Register Ulsip</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
@@ -51,9 +52,9 @@ if(isset($_POST['register'])){
     <div class="row">
         <div class="col-md-6">
 
-        <p>&larr; <a href="index.php">Home</a>
+        <p>&larr; <a href="index.php">Kembali</a>
 
-        <h4>Bergabunglah bersama ribuan orang lainnya...</h4>
+    
         <p>Sudah punya akun? <a href="login.php">Login di sini</a></p>
 
         <form action="" method="POST">

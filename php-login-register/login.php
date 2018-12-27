@@ -19,6 +19,7 @@ if(isset($_POST['login'])){
     $stmt->execute($params);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
 
     // jika user terdaftar
     if($user){
@@ -27,8 +28,12 @@ if(isset($_POST['login'])){
             // buat Session
             session_start();
             $_SESSION["user"] = $user;
-            // login sukses, alihkan ke halaman timeline
-            header("Location: timeline.php");
+            if('admin' == $user['username']){
+            header("Location: entry_tiket.php");
+            }
+            else{
+             header("Location: timeline.php");   
+            }
         }
     }
 }
@@ -41,7 +46,7 @@ if(isset($_POST['login'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login Pesbuk</title>
+    <title>Login ULship</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
@@ -51,9 +56,9 @@ if(isset($_POST['login'])){
     <div class="row">
         <div class="col-md-6">
 
-        <p>&larr; <a href="index.php">Home</a>
+        <p>&larr; <a href="index.php">kembali</a>
 
-        <h4>Masuk ke Pesbuk</h4>
+        <h4></h4>
         <p>Belum punya akun? <a href="register.php">Daftar di sini</a></p>
 
         <form action="" method="POST">
@@ -76,7 +81,7 @@ if(isset($_POST['login'])){
         </div>
 
         <div class="col-md-6">
-            <!-- isi dengan sesuatu di sini -->
+           
         </div>
 
     </div>
